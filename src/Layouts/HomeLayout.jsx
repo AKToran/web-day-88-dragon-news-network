@@ -1,28 +1,34 @@
-import React from 'react';
-import { Outlet } from 'react-router';
-import Header from '../Components/Header';
-import LatestNews from '../Components/LatestNews';
-import Navbar from '../Components/Navbar';
+import React from "react";
+import { Outlet } from "react-router";
+import Header from "../Components/Header";
+import LatestNews from "../Components/LatestNews";
+import Navbar from "../Components/Navbar";
+import LeftAside from "../Components/homeLayout/LeftAside";
+import RightAside from "../Components/homeLayout/RightAside";
 
 const HomeLayout = () => {
   return (
     <div>
       <header>
-        <Header/>
-        <section className='my-3'>
-          <LatestNews/>
+        <Header />
+        <section className="my-3">
+          <LatestNews />
         </section>
         <nav>
-          <Navbar/>
+          <Navbar />
         </nav>
       </header>
 
-      <main>
-        <section className="left-nav"></section>
-        <section className="main">
-          <Outlet/>
+      <main className="my-3 grid grid-cols-12">
+        <aside className="left-aside col-span-3">
+          <LeftAside />
+        </aside>
+        <section className="child-component col-span-6">
+          <Outlet />
         </section>
-        <section className="right-nav"></section>
+        <aside className="right-aside col-span-3">
+          <RightAside/>
+        </aside>
       </main>
     </div>
   );
