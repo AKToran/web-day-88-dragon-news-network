@@ -11,7 +11,7 @@ const HomeLayout = () => {
     <div>
       <header>
         <Header />
-        <section className="my-3">
+        <section className="my-4">
           <LatestNews />
         </section>
         <nav>
@@ -19,14 +19,14 @@ const HomeLayout = () => {
         </nav>
       </header>
 
-      <main className="my-3 grid grid-cols-12">
-        <aside className="left-aside col-span-3">
+      <main className="mt-8 grid grid-cols-12">
+        <aside className="left-aside col-span-3 w-10/12">
           <LeftAside />
         </aside>
         <section className="child-component col-span-6">
           <Outlet />
         </section>
-        <aside className="right-aside col-span-3">
+        <aside className="right-aside col-span-3 w-10/12 justify-self-end">
           <RightAside/>
         </aside>
       </main>
