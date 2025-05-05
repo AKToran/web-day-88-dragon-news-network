@@ -4,7 +4,7 @@ import { AuthContext } from '../provider/AuthContext';
 
 
 const Register = () => {
-  const { registerUser } = use(AuthContext)
+  const { registerUser, setUser } = use(AuthContext)
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -15,10 +15,10 @@ const Register = () => {
 
     registerUser(email, password)
     .then(result =>{
-      console.log(result);
+      setUser(result.user);
     })
     .catch(err =>{
-      console.log(err);
+      alert(err.message);
     })
 
     console.log(name, photo, email, password);
