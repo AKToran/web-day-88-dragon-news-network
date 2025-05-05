@@ -6,8 +6,6 @@ import { auth } from '../firebase/firebase.init';
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
 
-  console.log(user);
-
   const registerUser = (email, password) =>{
     return createUserWithEmailAndPassword(auth, email, password);
   }
