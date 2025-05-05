@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 
 const AuthLayout = () => {
   return (
-    <div className="bg-base-200 min-h-screen">
+    <div className="bg-base-200 min-h-screen px-20">
       <header className="py-8">
         <Navbar />
       </header>
