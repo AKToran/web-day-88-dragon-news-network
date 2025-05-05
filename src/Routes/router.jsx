@@ -9,8 +9,16 @@ const router = createBrowserRouter([
     path:'/',
     Component: HomeLayout,
     children: [
-      { index: true, Component: Home },
-      { path:"/category/:id", Component: CategoryNews }
+      { 
+        index: true, 
+        Component: Home 
+      },
+      { 
+        path:"/category/:id", 
+        Component: CategoryNews,
+        hydrateFallbackElement: <span className="loading loading-dots loading-xl"></span>,
+        loader: ()=> fetch("/news.json"),
+      }
     ]
   },
   {
