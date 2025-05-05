@@ -1,10 +1,24 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { use } from "react";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../provider/AuthContext";
 
 const Login = () => {
+  const { loginUser, setUser } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = (e)=>{
     e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    loginUser(email, password)
+    .then(result =>{
+      setUser(result.user);
+      navigate('/');
+    })
+    .catch(err =>{
+      alert(err.message);
+    })
   }
 
   return (
