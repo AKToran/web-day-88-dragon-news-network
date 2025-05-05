@@ -19,14 +19,14 @@ const HomeLayout = () => {
         </nav>
       </header>
 
-      <main className="mt-8 grid grid-cols-12">
-        <aside className="left-aside col-span-3 lg:w-10/12">
+      <main className="mt-8 grid grid-cols-12 gap-4">
+        <aside className="left-aside col-span-3">
           <LeftAside />
         </aside>
         <section className="child-component col-span-6">
           <Outlet />
         </section>
-        <aside className="right-aside col-span-3 lg:w-10/12 justify-self-end">
+        <aside className="right-aside col-span-3 justify-self-end">
           <RightAside/>
         </aside>
       </main>
