@@ -25,7 +25,7 @@ const Register = () => {
         setUser({...user, ...updatedData});
       })
       .catch(err => {
-        console.log(err);
+        alert(err)
         setUser(user);
       })
     })
