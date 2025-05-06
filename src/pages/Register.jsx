@@ -4,7 +4,7 @@ import { AuthContext } from '../provider/AuthContext';
 
 
 const Register = () => {
-  const { registerUser, setUser } = use(AuthContext)
+  const { registerUser, setUser, updateUser } = use(AuthContext)
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -15,13 +15,23 @@ const Register = () => {
 
     registerUser(email, password)
     .then(result =>{
-      setUser(result.user);
+      const user = result.user;
+      const updatedData = {
+        displayName: name,
+        photoURL: photo
+      }
+      updateUser(updatedData)
+      .then(() => {
+        setUser({...user, ...updatedData});
+      })
+      .catch(err => {
+        console.log(err);
+        setUser(user);
+      })
     })
     .catch(err =>{
       alert(err.message);
     })
-
-    console.log(name, photo, email, password);
   };
 
   return (
@@ -63,7 +73,7 @@ const Register = () => {
             <label className="label">Password</label>
             <input
               type="password"
-              name="password"
+              name="password" 
               className="input"
               placeholder="Password"
               required
