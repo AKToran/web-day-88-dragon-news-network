@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { Navigate, useLocation } from "react-router";
 import { AuthContext } from "./AuthContext";
+import Loader from "../pages/Loader";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = use(AuthContext);
@@ -8,9 +9,7 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="h-screen flex justify-center items-center">
-        <span className="loading loading-dots loading-xl"></span>
-      </div>
+      <Loader></Loader>
     );
   }
 
